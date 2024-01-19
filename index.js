@@ -80,4 +80,14 @@ data.pop();
 data.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" });
 data.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
 console.log(data);
-data.age.forEach()
+
+let ageTotal = 0;
+let count = 0;
+data.forEach(age => {
+    ageTotal += obj.age;
+    count++;
+})
+
+let averageAge =  ageTotal / count;
+
+console.log("Average Age: ", averageAge);
