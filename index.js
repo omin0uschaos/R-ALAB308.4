@@ -1,5 +1,5 @@
 console.log("-----------------------------PART 1---------------------------------------------");
-let str = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26"
+let str = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`
 
 // initialize currrentCell and cells Variables
 
@@ -27,6 +27,7 @@ for(let i in str){
             cell2 = "";
             cell3 = "";
             cell4 = "";
+            currentCell = 1;
             currentRow++;
             break;
 
@@ -50,7 +51,14 @@ for(let i in str){
     }
 
 }
+
+if (cell1 || cell2 || cell3 || cell4) {
+    rows.push([cell1, cell2, cell3, cell4]);
+    console.log(rows[currentRow]);
+}
+
 console.log("-----------------------------PART 2---------------------------------------------");
+
 console.log(rows);
 
 
@@ -76,18 +84,26 @@ rows.forEach(row => {
 
 //   Remove the last element from the sorted array.
 data.pop();
-
+// Insert the object at index 1
 data.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" });
+
 data.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
 console.log(data);
 
 let ageTotal = 0;
-let count = 0;
-data.forEach(age => {
-    ageTotal += obj.age;
-    count++;
+let count = data.length;
+data.forEach(obj => {
+    ageTotal += Number(obj.age);
 })
-
+// calculate the average age of the group
 let averageAge =  ageTotal / count;
 
 console.log("Average Age: ", averageAge);
+
+console.log("-----------------------------PART 5---------------------------------------------");
+
+
+const csvConvert = data.map(obj => {
+    return Object.values(obj).join(",");
+}).join(",");
+console.log(csvConvert);
